@@ -1,3 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap");
+
 body {
+  font-weight: 600;
+  font-family: "Rubik";
+  margin: 0px;
   background-color: green;
+}
+
+#header {
+  font-size: 38px;
+  font-weight: 600;
+  height: 80px;
+  padding-top: 25px;
+  padding-left: 25px;
+  margin-bottom: 5vh;
+  min-width: 625px;
+  background-color: palegoldenrod;
+}
+
+#content {
+  display: grid;
+  grid-template-columns: minmax(300px, 500px) minmax(300px, 500px);
+  grid-template-rows: 400px 200px;
+  padding-bottom: 50px;
+}
+
+#current-weather {
+  border: 2px black solid;
+  border-radius: 5px;
+  margin: 15px;
+  background-color: orchid;
+}
+.search-box {
+  background-color: yellow;
+  padding: 15px;
+}
+
+.city-info {
+  background-color: orange;
+  padding: 15px 5px 5px 5px;
+  font-size: 24px;
+}
+
+.city-name {
+  font-size: 32px;
+  padding-bottom: 5px;
+}
+
+.city-date-time {
+  padding-left: 25px;
+}
+
+.current-temp {
+  font-weight: 300;
+  font-size: 90px;
+}
+
+.weather-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
+  font-size: 20px;
+}
+
+.card-title {
+  font-size: 32px;
+  padding: 5px;
+}
+
+.daily-card {
+  border: 2px black solid;
+  border-radius: 5px;
+  margin: 15px;
+  background-color: powderblue;
+}
+
+#daily-forecast {
+  display: flex;
+  flex-direction: column;
+}
+
+.day {
+  margin: 10px 10px 0px 10px;
+  padding: 5px 20px 5px 20px;
+  border: black 1px solid;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+}
+.hourly-card {
+  border: 2px black solid;
+  border-radius: 5px;
+  margin: 15px;
+  grid-column: span 2;
+  background-color: teal;
+}
+
+#hourly-forecast {
+  display: flex;
+}
+.hour {
+  margin: 0px 10px 10px 10px;
+  padding: 15px 5px 15px 5px;
+  border: black 1px solid;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 35px;
+  background-color: palegoldenrod;
+  text-align: center;
+  padding-top: 15px;
 }
