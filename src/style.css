@@ -4,7 +4,7 @@ body {
   font-weight: 600;
   font-family: "Rubik";
   margin: 0px;
-  background-color: green;
+  background-color: #33658a;
 }
 
 #header {
@@ -15,29 +15,29 @@ body {
   padding-left: 25px;
   margin-bottom: 5vh;
   min-width: 625px;
-  background-color: palegoldenrod;
+  background-color: #2f4858;
+  color: #f26419;
 }
 
 #content {
   display: grid;
-  grid-template-columns: minmax(300px, 500px) minmax(300px, 500px);
-  grid-template-rows: 400px 200px;
-  padding-bottom: 50px;
+  grid-template-columns: minmax(320px, 500px) minmax(390px, 500px);
+  grid-template-rows: fit-content 240px;
 }
 
 #current-weather {
   border: 2px black solid;
   border-radius: 5px;
-  margin: 15px;
-  background-color: orchid;
+  margin: 7px;
+  background-color: #f6ae2d;
 }
 .search-box {
-  background-color: yellow;
+  background-color: #86bbd8;
+  border-radius: 5px 5px 2px 2px;
   padding: 15px;
 }
 
 .city-info {
-  background-color: orange;
   padding: 15px 5px 5px 5px;
   font-size: 24px;
 }
@@ -48,7 +48,7 @@ body {
 }
 
 .city-date-time {
-  padding-left: 25px;
+  padding-left: 20px;
 }
 
 .current-temp {
@@ -58,10 +58,9 @@ body {
 
 .weather-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 10px;
+  grid-template-columns: auto auto;
   font-size: 20px;
+  align-items: center;
 }
 
 .card-title {
@@ -72,8 +71,8 @@ body {
 .daily-card {
   border: 2px black solid;
   border-radius: 5px;
-  margin: 15px;
-  background-color: powderblue;
+  margin: 7px;
+  background-color: #f6ae2d;
 }
 
 #daily-forecast {
@@ -82,33 +81,51 @@ body {
 }
 
 .day {
-  margin: 10px 10px 0px 10px;
-  padding: 5px 20px 5px 20px;
+  margin: 2px 10px 5px 10px;
+  padding: 0px 0px 0px 10px;
   border: black 1px solid;
   border-radius: 4px;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr 0.8fr 0.8fr;
+  background-color: #86bbd8;
+  align-items: center;
+}
+
+.cropped-icon {
+  height: 40px;
+  width: 50px;
+  object-fit: cover;
+  /* overflow: hidden; */
 }
 .hourly-card {
   border: 2px black solid;
   border-radius: 5px;
-  margin: 15px;
+  margin: 7px;
   grid-column: span 2;
-  background-color: teal;
+  background-color: #f6ae2d;
 }
 
 #hourly-forecast {
   display: flex;
+  overflow-x: auto;
+  padding: 5px;
+  padding-left: 10px;
 }
 .hour {
-  margin: 0px 10px 10px 10px;
-  padding: 15px 5px 15px 5px;
+  margin: 0px 5px 10px 0px;
+  padding: 5px;
   border: black 1px solid;
   border-radius: 4px;
   display: flex;
   flex-direction: column;
+  background-color: #86bbd8;
   align-items: center;
   justify-content: space-between;
+}
+
+.hour-item {
+  padding-top: 5px;
+  padding-bottom: 3px;
 }
 
 #footer {
@@ -116,7 +133,8 @@ body {
   bottom: 0;
   width: 100%;
   height: 35px;
-  background-color: palegoldenrod;
+  background-color: #2f4858;
   text-align: center;
   padding-top: 15px;
+  color: #f26419;
 }

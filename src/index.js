@@ -1,13 +1,22 @@
 import "./style.css";
 import { getForecast } from "./api_call";
-import { format, fromUnixTime } from "date-fns";
+import { populateCurrent } from "./current.js";
+import { populateDaily } from "./daily.js";
+import { populateHourly } from "./hourly.js";
 
-async function test() {
-  const weatherData = await getForecast();
-  console.log(weatherData);
-  console.log(weatherData.daily);
-  console.log(weatherData.hourly);
-  console.log(format(new Date(fromUnixTime(weatherData.hourly[1].dt)), "h aa"));
+let cityName = "san francisco";
+
+loadWeather(cityName);
+
+async function loadWeather(aCity) {
+  const weatherData = await getForecast(aCity);
+  const cityInfo = weatherData.city;
+  const currentWeather = weatherData.forecastData.current;
+  const dailyWeather = weatherData.forecastData.daily;
+  const hourlyWeather = weatherData.forecastData.hourly;
+  console.log(currentWeather);
+  console.log(hourlyWeather);
+  populateCurrent(cityInfo, currentWeather, dailyWeather[0]);
+  populateDaily(dailyWeather);
+  populateHourly(hourlyWeather);
 }
-
-test();
