@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Weather</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <div id="header">
+      <div>OpenWeather/acutajar</div>
+    </div>
+    <div id="content">
+      <div id="current-weather">
+        <div class="search-box">
+          <div style="font-size: 24px">Search:</div>
+          <input
+            type="text"
+            id="city-search"
+            placeholder="Enter City Name..."
+            required
+          />
+          <input type="button" value="Search" id="btnSearch" />
+          
+        </div>
+        <div class="city-info">
+          <div class="city-name"></div>
+          <div class="city-date-time"></div>
+          <div class="current-temp"></div>
+          <div class="weather-grid">
+            <div id="hi-temp"></div>
+            <img id="weather-icon" src="" alt="icon" />
+            <div id="lo-temp"></div>
+            <div id="precip"></div>
+          </div>
+        </div>
+      </div>
+      <div class="daily-card">
+        <div class="card-title">7 Day Forecast</div>
+        <div id="daily-forecast"></div>
+      </div>
+      <div class="hourly-card">
+        <div class="card-title">Hourly Forecast</div>
+        <div id="hourly-forecast"></div>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="https://github.com/acutajar">github.com/acutajar</a>
+      | powered by: 
+      <a href="https://openweathermap.org/">OpenWeather</a>
+      <div>
+    <script src="main.js"></script>
+  </body>
+</html>
