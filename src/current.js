@@ -1,5 +1,4 @@
 import { format, fromUnixTime } from "date-fns";
-import { zonedTimeToUtc } from "date-fns-tz";
 
 async function populateCurrent(cityObj, currentWeather, dailyWeather) {
   const cityName = document.querySelector(".city-name");
@@ -11,20 +10,14 @@ async function populateCurrent(cityObj, currentWeather, dailyWeather) {
   const precip = document.getElementById("precip");
 
   cityName.textContent = cityObj.name + ", " + cityObj.country;
-  // cityDate.textContent = format(
-  //   new Date(fromUnixTime(currentWeather.dt - 25200)),
-  //   "EEEE, MM/dd/yyyy, h:mm aaa"
-  // );
-  // const date = getDatePickerValue(); // e.g. 2014-06-25 10:00:00 (picked in any time zone)
-  const timeZone = "America/Los_Angeles";
-  console.log(
-    zonedTimeToUtc(
-      new Date(fromUnixTime(currentWeather.dt)),
-      "America/Los_Angeles"
-    )
+  cityDate.textContent = format(
+    new Date(
+      fromUnixTime(currentWeather.dt + cityObj.timezone)
+        .toUTCString()
+        .slice(0, -3)
+    ),
+    "EEEE, MM/dd/yyyy, h:mm aaa"
   );
-  console.log(fromUnixTime(currentWeather.dt));
-  cityDate.textContent = zonedTimeToUtc(fromUnixTime(currentWeather.dt));
   currentTemp.textContent = Math.round(currentWeather.temp) + "°F";
   hiTemp.textContent = "Hi: " + Math.round(dailyWeather.temp.max) + "°F";
   loTemp.textContent = "Lo: " + Math.round(dailyWeather.temp.min) + "°F";

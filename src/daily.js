@@ -1,18 +1,25 @@
 import { format, fromUnixTime } from "date-fns";
 
-function populateDaily(dailyWeather) {
+function populateDaily(dailyWeather, cityObj) {
   const dailyForecast = document.getElementById("daily-forecast");
+  while (dailyForecast.firstChild) {
+    dailyForecast.removeChild(dailyForecast.firstChild);
+  }
   for (let i = 1; i < 8; i++) {
-    dailyForecast.appendChild(createDay(dailyWeather[i]));
+    dailyForecast.appendChild(createDay(dailyWeather[i], cityObj));
   }
 }
 
-function createDay(dayOfWeather) {
+function createDay(dayOfWeather, cityObj) {
   const myDay = document.createElement("div");
   myDay.setAttribute("class", "day");
   const aDayOfWeek = document.createElement("div");
   aDayOfWeek.textContent = format(
-    new Date(fromUnixTime(dayOfWeather.dt)),
+    new Date(
+      fromUnixTime(dayOfWeather.dt + cityObj.timezone)
+        .toUTCString()
+        .slice(0, -3)
+    ),
     "eeee"
   );
   const hiTemp = document.createElement("div");

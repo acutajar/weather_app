@@ -5,7 +5,7 @@ async function getForecast(cityName) {
       { mode: "cors" }
     );
     const cityData = await cityResponse.json();
-    console.log(cityData);
+    cityData;
     const city = cityData.city;
     const lat = cityData.city.coord.lat;
     const long = cityData.city.coord.lon;
